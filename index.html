@@ -67,6 +67,11 @@
                     }
                 );
             };
+            $scope.isStudentChecked = function(students){
+                return students.some(function(student){
+                    return student.checked;
+                });
+            };
         });
     </script>
 </head>
@@ -105,7 +110,7 @@
                 </select>
 
                 <button ng-click="registerStudent(student)" ng-disabled="!student.name || !student.phone || !student.address || !student.dateAdmission">Salvar</button>
-                <button ng-click="deleteStudent(students)">Excluir</button>
+                <button ng-click="deleteStudent(students)" ng-disabled="!isStudentChecked(students)">Excluir</button>
                 
                 
             </div>
