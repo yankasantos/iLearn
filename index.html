@@ -17,29 +17,25 @@
                 {
                     name: "Yanka Santos",
                     phone: "819123456",
-                    adress:"rua 2020, bairro Boa Vista, Recife-PE",
+                    address:"rua 2020, bairro Boa Vista, Recife-PE",
                     dateAdmission:"01/11/2020"
                 },
                 {
                     name: "Renato Lelis",
                     phone: "819678901",
-                    adress:"rua 2020, bairro Boa Vista, Recife-PE",
+                    address:"rua 2020, bairro Boa Vista, Recife-PE",
                     dateAdmission:"02/11/2020"
                 },
                 {
                     name: "Laine",
                     phone: "819999000",
-                    adress:"rua da indepêndencia, bairro Campo Grande, Florianópolis-SC",
+                    address:"rua da indepêndencia, bairro Campo Grande, Florianópolis-SC",
                     dateAdmission:"04/11/2020"
                 }
             ];
-            $scope.registerStudent = function(){
-                $scope.students.push({
-                    name: $scope.name,
-                    phone: $scope.phone,
-                    adress: $scope.adress,
-                    dateAdmission: $scope.dateAdmission 
-                });
+            $scope.registerStudent = function(student){
+                $scope.students.push(angular.copy(student));
+                delete $scope.student;
             };
         });
     </script>
@@ -59,20 +55,20 @@
                 <tr ng-repeat="student in students">
                     <td>{{student.name}}</td>
                     <td>{{student.phone}}</td>
-                    <td>{{student.adress}}</td>
+                    <td>{{student.address}}</td>
                     <td>{{student.dateAdmission}}</td>
                 </tr>
             </table>
             <div>
-                <input type="text" ng-model="name" placeholder="Nome"/>
-                <input type="text" ng-model="phone" placeholder="Tellefone"/>
-                <input type="text" ng-model="adress" placeholder="Endereço"/>
-                <input type="text" ng-model="dateAdmission" placeholder="Data de Admição"/>
-                <button ng-click="registerStudent()">Salvar</button>
+                <input type="text" ng-model="student.name" placeholder="Nome"/>
+                <input type="text" ng-model="student.phone" placeholder="Tellefone"/>
+                <input type="text" ng-model="student.address" placeholder="Endereço"/>
+                <input type="text" ng-model="student.dateAdmission" placeholder="Data de Admição"/>
+                <button ng-click="registerStudent(student)">Salvar</button>
                 <!-- 
                     {{name}}
                     {{phone}}
-                    {{adress}}
+                    {{address}}
                     {{dateAdmission}}
                 -->
             </div>
