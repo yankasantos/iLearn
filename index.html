@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="iLearn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iLearn</title>
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/scss/bootstrap.scss">
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script>
+        angular.module("iLearn",[]);
+        angular.module("iLearn").controller("iLearnController", function($scope){
+            $scope.title="iLearn";
+            $scope.message = "Bem-vindos a nossa plataforma!";
+
+            $scope.students = [
+                {
+                    name: "Yanka Santos",
+                    phone: "819123456",
+                    adress:"rua 2020, bairro Boa Vista, Recife-PE",
+                    dateAdmission:"01/11/2020"
+                },
+                {
+                    name: "Renato Lelis",
+                    phone: "819678901",
+                    adress:"rua 2020, bairro Boa Vista, Recife-PE",
+                    dateAdmission:"02/11/2020"
+                },
+                {
+                    name: "Laine",
+                    phone: "819999000",
+                    adress:"rua da indepêndencia, bairro Campo Grande, Florianópolis-SC",
+                    dateAdmission:"04/11/2020"
+                }
+            ];
+            $scope.registerStudent = function(){
+                $scope.students.push({
+                    name: $scope.name,
+                    phone: $scope.phone,
+                    adress: $scope.adress,
+                    dateAdmission: $scope.dateAdmission 
+                });
+            };
+        });
+    </script>
+</head>
+<body>
+    <div ng-controller="iLearnController" class="jumbotron">
+        <h1 ng-bind="title"></h1>
+        <span>{{message}}</span>
+        <div class="studentsList">
+            <table class="table table-striped">
+                <tr>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>Endereço</th>
+                    <th>Data Admição</th>
+                </tr>
+                <tr ng-repeat="student in students">
+                    <td>{{student.name}}</td>
+                    <td>{{student.phone}}</td>
+                    <td>{{student.adress}}</td>
+                    <td>{{student.dateAdmission}}</td>
+                </tr>
+            </table>
+            <div>
+                <input type="text" ng-model="name" placeholder="Nome"/>
+                <input type="text" ng-model="phone" placeholder="Tellefone"/>
+                <input type="text" ng-model="adress" placeholder="Endereço"/>
+                <input type="text" ng-model="dateAdmission" placeholder="Data de Admição"/>
+                <button ng-click="registerStudent()">Salvar</button>
+                <!-- 
+                    {{name}}
+                    {{phone}}
+                    {{adress}}
+                    {{dateAdmission}}
+                -->
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
