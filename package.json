@@ -1,0 +1,24 @@
+{
+  "name": "ilearn",
+  "version": "1.0.0",
+  "description": "projeto para cadastro de alunos e curssos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yankasantos/iLearn.git"
+  },
+  "author": "Yanka Santos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yankasantos/iLearn/issues"
+  },
+  "homepage": "https://github.com/yankasantos/iLearn#readme",
+  "dependencies": {
+    "angular": "^1.8.0",
+    "bootstrap": "^4.5.3",
+    "sass": "^1.28.0"
+  }
+}
