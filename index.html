@@ -33,6 +33,26 @@
                     dateAdmission:"04/11/2020"
                 }
             ];
+            $scope.courses = [
+                {
+                    title: "AngularJS",
+                    description: "Curso de introdução ao angular JS, aprendendo a fazer um CRUD",
+                    hours: "16 horas",
+                    price: "free"                
+                },
+                {
+                    title: "NodeJS",
+                    description: "Curso de introdução ao NodeJS, aprendendo a fazer um CRUD e consumo de API",
+                    hours: "40 horas",
+                    price: "R$30,00"                
+                },
+                {
+                    title: "Java Spring Boot",
+                    description: "Curso de Spring boot, integrando API com o front-end e gravando informação no banco de dados",
+                    hours: "40 horas",
+                    price: "R$60,00"                
+                }
+            ];
             $scope.registerStudent = function(student){
                 $scope.students.push(angular.copy(student));
                 delete $scope.student;
@@ -51,12 +71,14 @@
                     <th>Telefone</th>
                     <th>Endereço</th>
                     <th>Data Admição</th>
+                    <th>Curso</th>
                 </tr>
                 <tr ng-repeat="student in students">
                     <td>{{student.name}}</td>
                     <td>{{student.phone}}</td>
                     <td>{{student.address}}</td>
                     <td>{{student.dateAdmission}}</td>
+                    <td>{{student.course.title}}</td>
                 </tr>
             </table>
             <div>
@@ -64,13 +86,15 @@
                 <input type="text" ng-model="student.phone" placeholder="Tellefone"/>
                 <input type="text" ng-model="student.address" placeholder="Endereço"/>
                 <input type="text" ng-model="student.dateAdmission" placeholder="Data de Admição"/>
-                <button ng-click="registerStudent(student)">Salvar</button>
-                <!-- 
-                    {{name}}
-                    {{phone}}
-                    {{address}}
-                    {{dateAdmission}}
-                -->
+
+                
+                <select ng-model="student.course" ng-options="course.title for course in courses">
+                    <option value="">Selecione um curso</option>
+                </select>
+
+                <button ng-click="registerStudent(student)" ng-disabled="!student.name || !student.phone || !student.address || !student.dateAdmission">Salvar</button>
+                
+                
             </div>
 
         </div>
