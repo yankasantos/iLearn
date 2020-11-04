@@ -1,3 +1,5 @@
+
+
 angular.module("iLearn").controller("iLearnController", function($scope){
     $scope.title="iLearn";
     $scope.message = "Bem-vindos a nossa plataforma!";
@@ -61,4 +63,26 @@ angular.module("iLearn").controller("iLearnController", function($scope){
             return student.checked;
         });
     };
+    
+
+    function pdfGeneration(){
+        const getPageElement = document.getElementsByClassName('table').innerHTML;
+
+        const window = window.open('', '', 'width-800, height-600');
+        window.document.write('<html><head>');
+        window.document.write('<title>Lista de Alunos</title></html>');
+        window.document.write('<body>');
+        window.document.write(getPageElement);
+        window.document.write('</body></html>');
+        window.document.close();
+        window.print();
+
+    }
+    // const document = new jsPDF({
+    //     orientation: "landscape",
+    //     unit: "in",
+    //     format: [4, 2]
+    //   });
+    // document.text("Hello world!", 10, 10);
+    // document.save("a4.pdf");
 });
