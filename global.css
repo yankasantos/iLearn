@@ -1,3 +1,6 @@
+.card ::ng-deep{
+    margin: auto;
+}
 .checked{
     background-color: #ccc;
     font-weight: bold;

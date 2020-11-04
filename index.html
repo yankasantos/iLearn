@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iLearn</title>
     <link rel="stylesheet" href="global.css">
-    <link rel="stylesheet" href="./node_modules/bootstrap/scss/bootstrap.scss">
-    <script src="./node_modules/angular/angular.min.js"></script>
+    <link rel="stylesheet" href="./assets/bootstrap4/css/bootstrap.css">
+    <script src="./node_modules/angular/angular.js"></script>
     <script>
         angular.module("iLearn",[]);
         angular.module("iLearn").controller("iLearnController", function($scope){
@@ -76,7 +76,7 @@
     </script>
 </head>
 <body>
-    <div ng-controller="iLearnController" class="jumbotron">
+    <div ng-controller="iLearnController" class="container card">
         <h1 ng-bind="title"></h1>
         <span>{{message}}</span>
         <div class="studentsList">
@@ -90,7 +90,7 @@
                     <th>Curso</th>
                 </tr>
                 <tr ng-class="{checked: student.checked}" ng-repeat="student in students">
-                    <td><input type="checkbox" ng-model="student.checked"/></td>
+                    <td><input type="checkbox" class="form-check-label" ng-model="student.checked"/></td>
                     <td>{{student.name}}</td>
                     <td>{{student.phone}}</td>
                     <td>{{student.address}}</td>
@@ -98,21 +98,38 @@
                     <td>{{student.course.title}}</td>
                 </tr>
             </table>
-            <div>
-                <input type="text" ng-model="student.name" placeholder="Nome"/>
-                <input type="text" ng-model="student.phone" placeholder="Tellefone"/>
-                <input type="text" ng-model="student.address" placeholder="Endereço"/>
-                <input type="text" ng-model="student.dateAdmission" placeholder="Data de Admição"/>
+            <div class="form-group">
+                <form>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" ng-model="student.name" placeholder="Nome"/>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" ng-model="student.phone" placeholder="Tellefone"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" ng-model="student.address" placeholder="Endereço"/>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" ng-model="student.dateAdmission" placeholder="Data de Admição"/>
 
-                
-                <select ng-model="student.course" ng-options="course.title group by course.category for course in courses">
-                    <option value="">Selecione um curso</option>
-                </select>
+                        </div>
+                        <div class="col">
+                            <select class="form-control" ng-model="student.course" ng-options="course.title group by course.category for course in courses">
+                                <option value="">Selecione um curso</option>
+                            </select>
+                        </div>
+                    </div>
 
-                <button ng-click="registerStudent(student)" ng-disabled="!student.name || !student.phone || !student.address || !student.dateAdmission">Salvar</button>
-                <button ng-click="deleteStudent(students)" ng-disabled="!isStudentChecked(students)">Excluir</button>
-                
-                
+                    </div>
+                    <div class="row">
+                        <button class="btn btn-primary" ng-click="registerStudent(student)" ng-disabled="!student.name || !student.phone || !student.address || !student.dateAdmission">Salvar</button>
+                        <button class="btn btn-danger" ng-click="deleteStudent(students)" ng-disabled="!isStudentChecked(students)">Excluir</button>                            
+                    </div>
+                </form>
+
             </div>
 
         </div>
