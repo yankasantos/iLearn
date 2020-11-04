@@ -1,7 +1,40 @@
-.card ::ng-deep{
-    margin: auto;
-}
+
 .checked{
-    background-color: #ccc;
+    background-color: #319AF5;
     font-weight: bold;
+    color: #cacaca;
+}
+
+.studentsList{
+    width: auto;
+    margin-top: 2rem;
+  
+}
+
+.studentForm > form{
+    width: 100%;
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.speace{
+    margin-top: 0.5rem;
+    position: relative;
+    display: flex;
+    align-content: space-around;
+
+}
+
+.button-speace{
+    margin-right: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    
+
+}
+
+.button-speace:first-child{
+    margin-left: 1rem;
 }
