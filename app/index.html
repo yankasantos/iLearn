@@ -62,7 +62,7 @@
                     </div>
                     <div class="row">
                         <button class="button-speace btn btn-primary" ng-click="registerStudent(student)" ng-disabled="!student.name || !student.phone || !student.address || !student.dateAdmission">Salvar</button>
-                        <button class="button-speace btn btn-danger" ng-click="deleteStudent(students)" ng-show="isStudentChecked(students)">Excluir</button>                            
+                        <button class="button-speace btn btn-danger" ng-click="deleteStudent(students)" ng-if="isStudentChecked(students)">Excluir</button>                            
                     </div>
                 </form>
 
